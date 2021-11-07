@@ -1,12 +1,10 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-using UnityEngine.UI;
+﻿using UnityEngine;
 
 public class OyunKontrolKod : MonoBehaviour
 {
     public GameObject kup;
-    public GameObject zemin;   
+    public GameObject zemin;
+    public GameObject isiklar;
     Vector3 vec;
     GameObject clone;
     public Texture2D[] textures;
@@ -16,7 +14,8 @@ public class OyunKontrolKod : MonoBehaviour
 
 
     void Start()
-    {
+    {      
+
         KupleriOlusturma();
         zemin.transform.position = new Vector3(-7.2f,4f,-2.5f);
         zemin.transform.rotation = Quaternion.Euler(new Vector3(-90f,0f,0f));
@@ -32,7 +31,7 @@ public class OyunKontrolKod : MonoBehaviour
         {
             vec.z = 4.5f - i;
             for (int j = 0; j < 16; j++)
-            {                
+            {
                 vec.x = -6 + j;
                 clone = Instantiate(kup, vec, Quaternion.identity) as GameObject;
                 clone.transform.SetParent(zemin.transform);
@@ -49,7 +48,19 @@ public class OyunKontrolKod : MonoBehaviour
                     // gösterilmeyen kup ler tıklamalara tepki vermesi önlenir
                     Destroy(clone.GetComponent<BoxCollider>());
                     clone.GetComponent<MeshRenderer>().enabled = false;
-                }                               
+                }
+
+                // Lights - Every Cube has own light
+                // Make a game object
+                GameObject lightGameObject = new GameObject("The Light" + sayac);
+                lightGameObject.transform.SetParent(isiklar.transform);
+                // Add the light component
+                Light lightComp = lightGameObject.AddComponent<Light>();
+                lightComp.range = 1;
+                isiklar.transform.rotation = Quaternion.Euler(new Vector3(-270, 0,0));
+                // Set the position (or any transform property)
+                lightGameObject.transform.position = new Vector3(-16.72f, 2.82f, -1.9f);
+
                 sayac++;
             }
         }
