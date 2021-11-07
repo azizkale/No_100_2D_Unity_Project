@@ -17,7 +17,7 @@ public class OyunKontrolKod : MonoBehaviour
     {      
 
         KupleriOlusturma();
-        zemin.transform.position = new Vector3(-7.2f,4f,-2.5f);
+        zemin.transform.position = new Vector3(-7.2f,0.93f,-2.5f);
         zemin.transform.rotation = Quaternion.Euler(new Vector3(-90f,0f,0f));
        
     }
