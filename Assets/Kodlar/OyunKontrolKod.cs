@@ -1,13 +1,9 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-using UnityEngine.UI;
+﻿using UnityEngine;
 
 public class OyunKontrolKod : MonoBehaviour
 {
     public GameObject kup;
     public GameObject zemin;
-    public GameObject light;
     public GameObject isiklar;
     Vector3 vec;
     GameObject clone;
@@ -63,7 +59,7 @@ public class OyunKontrolKod : MonoBehaviour
                 lightComp.range = 1;
                 isiklar.transform.rotation = Quaternion.Euler(new Vector3(-270, 0,0));
                 // Set the position (or any transform property)
-                lightGameObject.transform.position = new Vector3(vec.x, vec.y, vec.z);
+                lightGameObject.transform.position = new Vector3(-16.72f, 2.82f, -1.9f);
 
                 sayac++;
             }
