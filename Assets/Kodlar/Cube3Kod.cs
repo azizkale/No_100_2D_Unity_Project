@@ -12,15 +12,17 @@ public class Cube3Kod : MonoBehaviour
 
     
 
+
+
     void Start()
     {
         render = GetComponent<Renderer>();
         oyunKontrol = GameObject.FindGameObjectWithTag("oyunKontrolTag").GetComponent<OyunKontrolKod>();
-
+       
     }
 
 
-    
+
     void OnMouseDown()
     {
         KutularaTiklama();       
@@ -65,6 +67,8 @@ public class Cube3Kod : MonoBehaviour
                     oyunKontrol.clonelar[i].GetComponent<Renderer>().material.mainTexture = oyunKontrol.textures[1];
                     oyunKontrol.clonelar[i].tag = "mavi";
                     oyunKontrol.clonelar[i].layer = 0;
+
+                   
                 }
 
                 else // yeşil ve mavi olmayanlar kırmızı olur
