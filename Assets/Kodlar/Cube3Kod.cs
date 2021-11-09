@@ -61,8 +61,9 @@ public class Cube3Kod : MonoBehaviour
                     oyunKontrol.clonelar[i].GetComponent<Renderer>().material.mainTexture = oyunKontrol.textures[1];
                     oyunKontrol.clonelar[i].tag = "mavi";
                     oyunKontrol.clonelar[i].layer = 0;
-                    ScorControl.score.text = (index+1).ToString();
 
+                    ScorControl.score.text = (index+1).ToString(); // Determines Score
+                    ScorControl.saveHighScore();
 
 
                 }

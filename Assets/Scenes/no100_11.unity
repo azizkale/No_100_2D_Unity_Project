@@ -767,7 +767,7 @@ GameObject:
   - component: {fileID: 949763201}
   m_Layer: 5
   m_Name: Score_number
-  m_TagString: Untagged
+  m_TagString: textScore
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -824,7 +824,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'Score:'
+  m_Text: 0
 --- !u!222 &949763202
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -862,8 +862,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e7c52591febec9441a63ad54bd7de9ef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  highScore: {fileID: 0}
-  score: {fileID: 949763201}
 --- !u!4 &1210705597
 Transform:
   m_ObjectHideFlags: 0
@@ -891,7 +889,7 @@ GameObject:
   - component: {fileID: 1233340986}
   m_Layer: 5
   m_Name: High_Score_number
-  m_TagString: Untagged
+  m_TagString: textHighScore
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -948,7 +946,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'Score:'
+  m_Text: 0
 --- !u!222 &1233340987
 CanvasRenderer:
   m_ObjectHideFlags: 0
