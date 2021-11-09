@@ -4,21 +4,15 @@ using UnityEngine;
 
 public class Cube3Kod : MonoBehaviour
 {
-
     Renderer render;
     public GameObject kup;
     OyunKontrolKod oyunKontrol;
     bool ilkTiklama;
 
-    
-
-
-
     void Start()
     {
         render = GetComponent<Renderer>();
-        oyunKontrol = GameObject.FindGameObjectWithTag("oyunKontrolTag").GetComponent<OyunKontrolKod>();
-       
+        oyunKontrol = GameObject.FindGameObjectWithTag("oyunKontrolTag").GetComponent<OyunKontrolKod>();       
     }
 
 
@@ -46,7 +40,7 @@ public class Cube3Kod : MonoBehaviour
         foreach (GameObject item in oyunKontrol.clonelar)
         {
             if (item.tag=="yesil")
-            {
+            {               
                 index++;
             }
         }
@@ -67,8 +61,10 @@ public class Cube3Kod : MonoBehaviour
                     oyunKontrol.clonelar[i].GetComponent<Renderer>().material.mainTexture = oyunKontrol.textures[1];
                     oyunKontrol.clonelar[i].tag = "mavi";
                     oyunKontrol.clonelar[i].layer = 0;
+                    ScorControl.score.text = (index+1).ToString();
 
-                   
+
+
                 }
 
                 else // yeşil ve mavi olmayanlar kırmızı olur

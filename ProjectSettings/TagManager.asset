@@ -12,6 +12,7 @@ TagManager:
   - ortogonalCameraTag
   - perspektifLightTag
   - ortogonalLightTag
+  - textScore
   layers:
   - Default
   - TransparentFX
