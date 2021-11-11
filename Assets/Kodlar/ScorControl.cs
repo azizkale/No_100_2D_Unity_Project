@@ -1,19 +1,20 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class ScorControl : MonoBehaviour    
 {
-    public static Text highScore;
-    public static Text score;   
+    public static TextMeshProUGUI highScore;
+    public static TextMeshProUGUI score;   
 
     // Start is called before the first frame update
     void Start()
     {
         //instances
-        score = GameObject.FindWithTag("textScore").GetComponent<Text>();
-        highScore = GameObject.FindWithTag("textHighScore").GetComponent<Text>();
+        score = GameObject.FindWithTag("textScore").GetComponent<TextMeshProUGUI>();
+        highScore = GameObject.FindWithTag("textHighScore").GetComponent<TextMeshProUGUI>();
         // assined the high score from local storage
         highScore.text = PlayerPrefs.GetInt("highScore").ToString();
     }
