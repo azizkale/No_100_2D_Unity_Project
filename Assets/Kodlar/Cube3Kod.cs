@@ -47,8 +47,7 @@ public class Cube3Kod : MonoBehaviour
 
         //alttaki for döngüsü ile  her tıklandığında tüm clone küpler taranır ve mavi kırmızı veya yeşil olur.
         for (int i = 0; i < 255; i++)
-        {
-            //oyunKontrol.clonelar[i].GetComponent<Renderer>().material.mainTexture != oyunKontrol.textures[0]
+        {            
             if (oyunKontrol.clonelar[i].tag!="yesil") // yeşil olan küp rengi değişmesin diye
             {                
                 render.material.mainTexture = oyunKontrol.sayilar[index];

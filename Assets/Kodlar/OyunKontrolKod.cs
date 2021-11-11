@@ -31,7 +31,7 @@ public class OyunKontrolKod : MonoBehaviour
                 clone.transform.SetParent(zemin.transform);
                 
                 clone.name = sayac.ToString();               
-                clone.transform.localScale = new Vector3(0.9f, 0.9f, 0.9f);
+                clone.transform.localScale = new Vector3(0.93f, 0.93f, 0.93f);
                 clonelar[sayac] = clone;
                 clone.GetComponent<Renderer>().material.mainTexture = textures[1];
                 clone.tag = "mavi";
