@@ -9,11 +9,16 @@ public class OyunKontrolKod : MonoBehaviour
     public Texture2D[] textures;
     public GameObject[] clonelar;
     public Texture2D[] sayilar;
+    public Shader myShader;
 
 
     void Start()
     {
+
+        Screen.fullScreen = !Screen.fullScreen;
+       
         KupleriOlusturma();
+        startFromMemory();
         zemin.transform.position = new Vector3(-7.2f,0.25f,-2.5f);
         zemin.transform.rotation = Quaternion.Euler(new Vector3(-90f, 0f, 0f));       
     }   
@@ -29,12 +34,15 @@ public class OyunKontrolKod : MonoBehaviour
                 vec.x = -6 + j;
                 clone = Instantiate(kup, vec, Quaternion.identity) as GameObject;
                 clone.transform.SetParent(zemin.transform);
-                
+
+                //Shader setting
+                clone.GetComponent<Renderer>().material.shader = myShader;
+
                 clone.name = sayac.ToString();               
                 clone.transform.localScale = new Vector3(0.93f, 0.93f, 0.93f);
                 clonelar[sayac] = clone;
                 clone.GetComponent<Renderer>().material.mainTexture = textures[1];
-                clone.tag = "mavi";
+                clone.tag = "mavi";              
                
                 //fazlalık küplerin meshRenderer ları kapatılır.
                 if (sayac >= 0 && sayac <= 47 || sayac >= 208 && sayac <= 255 || sayac % 16 == 0 || sayac % 16 == 1 || sayac % 16 == 2 || sayac % 16 == 13 || sayac % 16 == 14 || sayac % 16 == 15)
@@ -48,5 +56,32 @@ public class OyunKontrolKod : MonoBehaviour
         }
     }
 
-   
+    public void saveAndCancelGame()
+    {
+        foreach (GameObject item in clonelar)
+        {
+            PlayerPrefs.SetString("tag", item.tag);
+            PlayerPrefs.SetInt("layer", item.layer);
+            PlayerPrefs.SetString("texture", item.GetComponent<Renderer>().material.mainTexture.name);
+        }
+        Application.Quit();
+    }
+
+    public void startFromMemory()
+    {
+        foreach (GameObject item in clonelar)
+        {
+            item.tag = PlayerPrefs.GetString("tag", item.tag);
+            item.layer = PlayerPrefs.GetInt("layer", item.layer);
+            PlayerPrefs.SetString("texture", item.GetComponent<Renderer>().material.mainTexture.name);
+            if (PlayerPrefs.GetString("texture") == "00-01")
+                item.GetComponent<Renderer>().material.mainTexture = textures[0];
+            else if (PlayerPrefs.GetString("texture") == "11-01")
+                item.GetComponent<Renderer>().material.mainTexture = textures[1];
+            else if (PlayerPrefs.GetString("texture") == "cube_Texture5")
+                item.GetComponent<Renderer>().material.mainTexture = textures[2];
+
+
+        }
+    }
 }

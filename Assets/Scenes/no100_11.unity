@@ -679,6 +679,7 @@ MonoBehaviour:
   - {fileID: 2800000, guid: bc4a2d73ab79aaa42b8bc0886c52620f, type: 3}
   - {fileID: 2800000, guid: 09dd9b0c3a531574387c6e91f84ff12e, type: 3}
   - {fileID: 2800000, guid: c7f90a60f92f27442ac2fd4fa752afb9, type: 3}
+  myShader: {fileID: 10752, guid: 0000000000000000f000000000000000, type: 0}
 --- !u!4 &222117500
 Transform:
   m_ObjectHideFlags: 0
@@ -1637,7 +1638,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1397825174}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 222117499}
+        m_MethodName: saveAndCancelGame
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &1397825174
