@@ -8,6 +8,7 @@ public class Cube3Kod : MonoBehaviour
     public GameObject kup;
     OyunKontrolKod oyunKontrol;
     bool ilkTiklama;
+    bool availableMove = false; // if there are availables move(blue cube) it turns to true
 
     void Start()
     {
@@ -21,6 +22,7 @@ public class Cube3Kod : MonoBehaviour
     {
         KutularaTiklama();       
         StartCoroutine(DonmeAnimasyonu());
+        setScore(availableMove);
         Debug.Log(name);
     }
  
@@ -61,8 +63,7 @@ public class Cube3Kod : MonoBehaviour
                     oyunKontrol.clonelar[i].tag = "mavi";
                     oyunKontrol.clonelar[i].layer = 0;
 
-                    ScorControl.score.text = (index+1).ToString(); // Determines Score
-                    ScorControl.saveHighScore();
+                    availableMove = true;
 
 
                 }
@@ -77,6 +78,16 @@ public class Cube3Kod : MonoBehaviour
             
         }
         index++; // yesil olan küpe sayı verme index i
+    }
+
+    int setScore(bool availableMove)
+    {
+        if (availableMove)
+        {
+            ScorControl.score.text = (index).ToString(); // Determines Score
+            ScorControl.saveHighScore();
+        }        
+        return index;
     }
 
     public IEnumerator DonmeAnimasyonu()
