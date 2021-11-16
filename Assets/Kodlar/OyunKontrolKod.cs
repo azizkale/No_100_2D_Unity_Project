@@ -18,7 +18,7 @@ public class OyunKontrolKod : MonoBehaviour
         Screen.fullScreen = !Screen.fullScreen;
        
         KupleriOlusturma();
-        startFromMemory();
+        //startFromMemory();
         zemin.transform.position = new Vector3(-7.2f,0.25f,-2.5f);
         zemin.transform.rotation = Quaternion.Euler(new Vector3(-90f, 0f, 0f));       
     }   
@@ -56,32 +56,7 @@ public class OyunKontrolKod : MonoBehaviour
         }
     }
 
-    public void saveAndCancelGame()
-    {
-        foreach (GameObject item in clonelar)
-        {
-            PlayerPrefs.SetString("tag", item.tag);
-            PlayerPrefs.SetInt("layer", item.layer);
-            PlayerPrefs.SetString("texture", item.GetComponent<Renderer>().material.mainTexture.name);
-        }
-        Application.Quit();
-    }
+   
 
-    public void startFromMemory()
-    {
-        foreach (GameObject item in clonelar)
-        {
-            item.tag = PlayerPrefs.GetString("tag", item.tag);
-            item.layer = PlayerPrefs.GetInt("layer", item.layer);
-            PlayerPrefs.SetString("texture", item.GetComponent<Renderer>().material.mainTexture.name);
-            if (PlayerPrefs.GetString("texture") == "00-01")
-                item.GetComponent<Renderer>().material.mainTexture = textures[0];
-            else if (PlayerPrefs.GetString("texture") == "11-01")
-                item.GetComponent<Renderer>().material.mainTexture = textures[1];
-            else if (PlayerPrefs.GetString("texture") == "cube_Texture5")
-                item.GetComponent<Renderer>().material.mainTexture = textures[2];
-
-
-        }
-    }
+   
 }

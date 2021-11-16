@@ -29,8 +29,6 @@ public class Cube3Kod : MonoBehaviour
     private void Update()
     {
 
-       
-
     }
 
     int index = 0;
