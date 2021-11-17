@@ -46,6 +46,6 @@ public class Memory : MonoBehaviour
                 item.layer = 2;
                 item.GetComponent<Renderer>().material.mainTexture = textures[2];
             }
-        }
+        }       
     }
 }

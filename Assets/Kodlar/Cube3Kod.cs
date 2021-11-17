@@ -69,7 +69,7 @@ public class Cube3Kod : MonoBehaviour
         index++; // yesil olan küpe sayı verme index i
     }
 
-    int setScore(bool availableMove)
+    public int setScore(bool availableMove)
     {
         if (availableMove)
         {
