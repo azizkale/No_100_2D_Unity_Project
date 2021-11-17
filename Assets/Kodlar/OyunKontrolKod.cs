@@ -53,6 +53,16 @@ public class OyunKontrolKod : MonoBehaviour
         }
     }
 
+    public void resetGame()
+    {
+        foreach (GameObject item in clonelar)
+        {
+            item.tag = "mavi";
+            item.layer = 0;
+            item.GetComponent<Renderer>().material.mainTexture = textures[1];
+            
+        }
+    }
    
 
    
