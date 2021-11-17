@@ -86,7 +86,5 @@ public class Cube3Kod : MonoBehaviour
             this.transform.rotation = Quaternion.Euler(-i * 30, 0, -180);
             yield return new WaitForSeconds(0.1f);
         }      
-    }
-
-    
+    }    
 }
