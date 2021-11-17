@@ -4,25 +4,21 @@ public class OyunKontrolKod : MonoBehaviour
 {
     public GameObject kup;
     public GameObject zemin;
-    public GameObject isiklar;
     Vector3 vec;
     GameObject clone;
     public Texture2D[] textures;
     public GameObject[] clonelar;
     public Texture2D[] sayilar;
-  
-
+    public Shader myShader;
 
     void Start()
-    {      
-
-        KupleriOlusturma();
-        zemin.transform.position = new Vector3(-7.2f,0.93f,-2.5f);
-        zemin.transform.rotation = Quaternion.Euler(new Vector3(-90f,0f,0f));
+    {
+        Screen.fullScreen = !Screen.fullScreen; // to fit the screen to the device's screen
        
-    }
-      
-    
+        KupleriOlusturma();
+        zemin.transform.position = new Vector3(-7.2f,0.25f,-2.5f);
+        zemin.transform.rotation = Quaternion.Euler(new Vector3(-90f, 0f, 0f));       
+    }   
 
     public void KupleriOlusturma()
     {
@@ -35,12 +31,15 @@ public class OyunKontrolKod : MonoBehaviour
                 vec.x = -6 + j;
                 clone = Instantiate(kup, vec, Quaternion.identity) as GameObject;
                 clone.transform.SetParent(zemin.transform);
-                
+
+                //Shader setting
+                clone.GetComponent<Renderer>().material.shader = myShader;
+
                 clone.name = sayac.ToString();               
-                clone.transform.localScale = new Vector3(0.9f, 0.9f, 0.9f);
+                clone.transform.localScale = new Vector3(0.93f, 0.93f, 0.93f);
                 clonelar[sayac] = clone;
                 clone.GetComponent<Renderer>().material.mainTexture = textures[1];
-                clone.tag = "mavi";
+                clone.tag = "mavi";              
                
                 //fazlalık küplerin meshRenderer ları kapatılır.
                 if (sayac >= 0 && sayac <= 47 || sayac >= 208 && sayac <= 255 || sayac % 16 == 0 || sayac % 16 == 1 || sayac % 16 == 2 || sayac % 16 == 13 || sayac % 16 == 14 || sayac % 16 == 15)
@@ -49,22 +48,22 @@ public class OyunKontrolKod : MonoBehaviour
                     Destroy(clone.GetComponent<BoxCollider>());
                     clone.GetComponent<MeshRenderer>().enabled = false;
                 }
-
-                // Lights - Every Cube has own light
-                // Make a game object
-                GameObject lightGameObject = new GameObject("The Light" + sayac);
-                lightGameObject.transform.SetParent(isiklar.transform);
-                // Add the light component
-                Light lightComp = lightGameObject.AddComponent<Light>();
-                lightComp.range = 1;
-                isiklar.transform.rotation = Quaternion.Euler(new Vector3(-270, 0,0));
-                // Set the position (or any transform property)
-                lightGameObject.transform.position = new Vector3(-16.72f, 2.82f, -1.9f);
-
                 sayac++;
             }
         }
     }
+
+    public void resetGame()
+    {
+        foreach (GameObject item in clonelar)
+        {
+            item.tag = "mavi";
+            item.layer = 0;
+            item.GetComponent<Renderer>().material.mainTexture = textures[1];
+            
+        }
+    }
+   
 
    
 }
