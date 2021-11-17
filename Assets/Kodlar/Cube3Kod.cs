@@ -1,4 +1,5 @@
 ﻿using System.Collections;
+using TMPro;
 using UnityEngine;
 
 public class Cube3Kod : MonoBehaviour
@@ -8,24 +9,26 @@ public class Cube3Kod : MonoBehaviour
     OyunKontrolKod oyunKontrol;
     bool ilkTiklama;
     bool availableMove = false; // if there are availables move(blue cube) it turns to true
+    ScorControl scorControl;
 
     void Start()
     {
         render = GetComponent<Renderer>();
-        oyunKontrol = GameObject.FindGameObjectWithTag("oyunKontrolTag").GetComponent<OyunKontrolKod>();       
+        oyunKontrol = GameObject.FindGameObjectWithTag("oyunKontrolTag").GetComponent<OyunKontrolKod>();
+        scorControl = new ScorControl();
     }
 
     void OnMouseDown()
     {
-        KutularaTiklama();       
+        KutularaTiklama();      
         StartCoroutine(DonmeAnimasyonu());
-        setScore(availableMove);
         Debug.Log(name);
     } 
     
-    int index = 0;
+   
     public void KutularaTiklama()
-    {       
+    {
+        int index = 0;
         int syc = System.Int32.Parse(this.name);// clone küpün adını int e çevirir
 
         // altattaki foreach döngüsü yesil olan clone küpe sayı veriri
@@ -57,27 +60,20 @@ public class Cube3Kod : MonoBehaviour
 
                 }
 
-                else // yeşil ve mavi olmayanlar kırmızı olur
+                else // yeşil ve mavi olmayanlar kırmızı (tagli) olur
                 {
                     oyunKontrol.clonelar[i].GetComponent<Renderer>().material.mainTexture = oyunKontrol.textures[2];
                     oyunKontrol.clonelar[i].tag = "kirmizi";
                     oyunKontrol.clonelar[i].layer = 2;
                 }                
-            }
-            
-        }
-        index++; // yesil olan küpe sayı verme index i
-    }
+            }            
+        }    
 
-    public int setScore(bool availableMove)
-    {
-        if (availableMove)
-        {
-            ScorControl.score.text = (index).ToString(); // Determines Score
-            ScorControl.saveHighScore();
-        }        
-        return index;
-    }
+        index++; // yesil olan küpe sayı verme index i
+
+        //--------- in every click it sets the score----------------
+        scorControl.setAndSaveScores(index);
+    }      
 
     public IEnumerator DonmeAnimasyonu()
     {

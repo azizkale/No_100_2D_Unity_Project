@@ -60,6 +60,8 @@ public class OyunKontrolKod : MonoBehaviour
             item.tag = "mavi";
             item.layer = 0;
             item.GetComponent<Renderer>().material.mainTexture = textures[1];
+            ScorControl.score.text = "0";
+            PlayerPrefs.SetInt("score", 0);
             
         }
     }
