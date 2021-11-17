@@ -1,7 +1,6 @@
 ﻿using System.Collections;
 using UnityEngine;
 
-
 public class Cube3Kod : MonoBehaviour
 {
     Renderer render;
@@ -16,21 +15,14 @@ public class Cube3Kod : MonoBehaviour
         oyunKontrol = GameObject.FindGameObjectWithTag("oyunKontrolTag").GetComponent<OyunKontrolKod>();       
     }
 
-
-
     void OnMouseDown()
     {
         KutularaTiklama();       
         StartCoroutine(DonmeAnimasyonu());
         setScore(availableMove);
         Debug.Log(name);
-    }
- 
-    private void Update()
-    {
-
-    }
-
+    } 
+    
     int index = 0;
     public void KutularaTiklama()
     {       
@@ -62,7 +54,6 @@ public class Cube3Kod : MonoBehaviour
                     oyunKontrol.clonelar[i].layer = 0;
 
                     availableMove = true;
-
 
                 }
 
