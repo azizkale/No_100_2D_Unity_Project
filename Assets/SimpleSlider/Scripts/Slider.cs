@@ -52,7 +52,7 @@ namespace Assets.SimpleSlider.Scripts
 				}
 				else
 				{
-					button.onClick.AddListener(() => { Application.OpenURL(banner.Url); });
+					//button.onClick.AddListener(() => { Application.OpenURL(banner.Url); });
 				}
 
 				instance.GetComponent<Image>().sprite = banner.Sprite;
