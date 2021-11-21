@@ -7,6 +7,7 @@ public class AnimationControl : MonoBehaviour
 {
     void Start()
     {
+
         Screen.fullScreen = !Screen.fullScreen; // to fit the screen to the device's screen        
     }
 
