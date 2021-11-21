@@ -297,7 +297,6 @@ GameObject:
   - component: {fileID: 222117500}
   - component: {fileID: 222117499}
   - component: {fileID: 222117501}
-  - component: {fileID: 222117502}
   m_Layer: 0
   m_Name: OyunKontrol
   m_TagString: oyunKontrolTag
@@ -713,18 +712,6 @@ MonoBehaviour:
   - {fileID: 2800000, guid: c088957a6528df24d8cbdab12d374084, type: 3}
   - {fileID: 2800000, guid: cdf98169dd5221249939be38814b3529, type: 3}
   - {fileID: 2800000, guid: 965dca3ddba3f6746a02096b21275c43, type: 3}
---- !u!114 &222117502
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 222117498}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6194850d8c5471045905c9727d6e7b4c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &309001314
 GameObject:
   m_ObjectHideFlags: 0

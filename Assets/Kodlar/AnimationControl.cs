@@ -7,25 +7,13 @@ public class AnimationControl : MonoBehaviour
 {
     void Start()
     {
-        //PlayerPrefs.DeleteAll();
-        if (PlayerPrefs.GetInt("animationReshowing") == 0)
-        {
-            PlayerPrefs.SetInt("animationReshowing", 1);
-            //SceneManager.LoadScene("IntroAnimation");
-        }
-        if (PlayerPrefs.GetInt("animationReshowing") == 1)
-        {
-            SceneManager.LoadScene("no100_11");
-           
-        }
-        //else
-            //SceneManager.LoadScene("IntroAnimation");
+        Screen.fullScreen = !Screen.fullScreen; // to fit the screen to the device's screen        
     }
 
 
     public void watchAgain()
     {
-        PlayerPrefs.SetInt("animationReshowing", 0);
+        Screen.fullScreen = !Screen.fullScreen; // to fit the screen to the device's screen
         SceneManager.LoadScene("IntroAnimation");
     }
 
