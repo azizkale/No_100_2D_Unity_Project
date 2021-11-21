@@ -15,7 +15,8 @@ public class OyunKontrolKod : MonoBehaviour
     void Start()
     {
         Screen.fullScreen = !Screen.fullScreen; // to fit the screen to the device's screen
-        PlayerPrefs.DeleteAll();
+
+        // this calls animation clip if player set animationReshowing to "1"
         if (PlayerPrefs.GetInt("animationReshowing") == 0)        
             SceneManager.LoadScene("IntroAnimation");
         
