@@ -1,29 +1,34 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-using UnityEngine.SceneManagement;
+﻿using UnityEngine;
 
 public class AnimationControl : MonoBehaviour
 {
+    public Canvas canvasObjects;
+    public Canvas canvasTexts;
+
     void Start()
     {
-        if(Screen.fullScreen == false)
-        {
-            Screen.fullScreen = !Screen.fullScreen; // to fit the screen to the device's screen   
-        }
-        
+        canvasObjects = GetComponent<Canvas>();
+        canvasTexts = GetComponent<Canvas>();
     }
 
 
     public void watchAgain()
     {
-        Screen.fullScreen = !Screen.fullScreen; // to fit the screen to the device's screen
-        SceneManager.LoadScene("IntroAnimation");
+        Debug.Log("zort");
+        gameObject.GetComponent<Animator>().Play("Intro", -1, 0);
+
     }
 
     public void dontShowAgain()
     {
-        PlayerPrefs.SetInt("animationReshowing", 1);
-        SceneManager.LoadScene("no100_11");
+        Debug.Log("zort");
+    }
+
+    public void showAnimationIntro()
+    {
+        // it disables the two canvas below on the screen to show animationIntro
+        // does nothing somthing magic
+        canvasObjects.enabled = false;
+        canvasTexts.enabled = false;
     }
 }

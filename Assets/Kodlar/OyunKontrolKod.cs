@@ -11,19 +11,18 @@ public class OyunKontrolKod : MonoBehaviour
     public GameObject[] clonelar;
     public Texture2D[] sayilar;
     public Shader myShader;
+    AnimationControl animControl;
 
     void Start()
     {
         Screen.fullScreen = !Screen.fullScreen; // to fit the screen to the device's screen
 
-        // this calls animation clip if player didn't set animationReshowing-variable to "1"
-        if (PlayerPrefs.GetInt("animationReshowing") == 0)        
-            SceneManager.LoadScene("IntroAnimation");
-        
 
         KupleriOlusturma();
         zemin.transform.position = new Vector3(-7.2f,0.25f,-2.5f);
-        zemin.transform.rotation = Quaternion.Euler(new Vector3(-90f, 0f, 0f));       
+        zemin.transform.rotation = Quaternion.Euler(new Vector3(-90f, 0f, 0f));
+        animControl = new AnimationControl();
+        animControl.showAnimationIntro();
     }   
 
     public void KupleriOlusturma()
