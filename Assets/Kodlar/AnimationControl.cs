@@ -14,14 +14,14 @@ public class AnimationControl : MonoBehaviour
 
     public void watchAgain()
     {
-        Debug.Log("zort");
-        gameObject.GetComponent<Animator>().Play("Intro", -1, 0);
+        Debug.Log("watchAgain");
+        //gameObject.GetComponent<Animator>().Play("Intro", -1, 0);
 
     }
 
     public void dontShowAgain()
     {
-        Debug.Log("zort");
+        Debug.Log("dontShowAgain");
     }
 
     public void showAnimationIntro()
