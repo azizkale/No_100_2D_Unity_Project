@@ -2,33 +2,29 @@
 
 public class AnimationControl : MonoBehaviour
 {
-    public Canvas canvasObjects;
-    public Canvas canvasTexts;
-
+   
     void Start()
     {
-        canvasObjects = GetComponent<Canvas>();
-        canvasTexts = GetComponent<Canvas>();
+
     }
 
 
     public void watchAgain()
     {
-        Debug.Log("watchAgain");
-        //gameObject.GetComponent<Animator>().Play("Intro", -1, 0);
+        gameObject.GetComponent<Animator>().Play("Intro", -1, 0);
 
     }
 
     public void dontShowAgain()
     {
-        Debug.Log("dontShowAgain");
+        //anim.SetActive(false);
     }
 
-    public void showAnimationIntro()
+    public void showAnimationIntro(GameObject gameobject)
     {
-        // it disables the two canvas below on the screen to show animationIntro
-        // does nothing somthing magic
-        canvasObjects.enabled = false;
-        canvasTexts.enabled = false;
+
+        gameobject.SetActive(true);
+        //GameObject.FindWithTag("House").activeSelf = false;
+
     }
 }
