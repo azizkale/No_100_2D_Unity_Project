@@ -11,8 +11,7 @@ public class OyunKontrolKod : MonoBehaviour
     public Texture2D[] sayilar;
     public Shader myShader;
 
-    private Animation anim;
-    public Animator animator;
+    
     void Start()
     {
         Screen.fullScreen = !Screen.fullScreen; // to fit the screen to the device's screen
@@ -21,8 +20,7 @@ public class OyunKontrolKod : MonoBehaviour
         zemin.transform.position = new Vector3(-7.2f,0.25f,-2.5f);
         zemin.transform.rotation = Quaternion.Euler(new Vector3(-90f, 0f, 0f));
 
-        animator = gameObject.GetComponent<Animator>();
-        anim.Play("Base Layer.Intro");
+       
     }   
 
     public void KupleriOlusturma()

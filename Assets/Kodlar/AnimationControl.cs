@@ -2,17 +2,26 @@
 
 public class AnimationControl : MonoBehaviour
 {
-   
+    public GameObject go;
     void Start()
     {
-
+       
     }
 
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.A))
+        {
+            go.SetActive(true);
+        }  if (Input.GetKeyDown(KeyCode.B))
+        {
+            go.SetActive(false);
+        }
+    }
 
     public void watchAgain()
     {
-        gameObject.GetComponent<Animator>().Play("Intro", -1, 0);
-
+       
     }
 
     public void dontShowAgain()
