@@ -5,21 +5,12 @@ public class AnimationControl : MonoBehaviour
     public GameObject go;
     void Start()
     {
-       
+        PlayerPrefs.SetInt("animation", 0);
     }
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.A))
-        {
-            go.SetActive(true);
-            Debug.Log("A");
-        }
-        if (Input.GetKeyDown(KeyCode.B))
-        {
-            go.SetActive(false);
-            Debug.Log("B");
-        }
+        
     }
 
     public void watchAgain()
@@ -29,14 +20,23 @@ public class AnimationControl : MonoBehaviour
 
     public void dontShowAgain()
     {
-        //anim.SetActive(false);
     }
 
-    public void showAnimationIntro(GameObject gameobject)
+    public void showAnimationIntro()
     {
 
-        gameobject.SetActive(true);
-        //GameObject.FindWithTag("House").activeSelf = false;
-
+        if (PlayerPrefs.GetInt("animation") == 0)
+        {
+            PlayerPrefs.SetInt("animation", 1);
+            go.SetActive(true);
+            Debug.Log(PlayerPrefs.GetInt("animation"));
+        }
+        if(PlayerPrefs.GetInt("animation") == 1)
+        {
+            PlayerPrefs.SetInt("animation", 0);
+            go.SetActive(false);
+            Debug.Log(PlayerPrefs.GetInt("animation"));
+        }
+        //return PlayerPrefs.GetInt("animation");
     }
 }
