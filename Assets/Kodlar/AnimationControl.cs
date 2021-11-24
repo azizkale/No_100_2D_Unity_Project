@@ -13,9 +13,12 @@ public class AnimationControl : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.A))
         {
             go.SetActive(true);
-        }  if (Input.GetKeyDown(KeyCode.B))
+            Debug.Log("A");
+        }
+        if (Input.GetKeyDown(KeyCode.B))
         {
             go.SetActive(false);
+            Debug.Log("B");
         }
     }
 
