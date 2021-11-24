@@ -129,7 +129,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &13072466
 RectTransform:
   m_ObjectHideFlags: 0
@@ -289,7 +289,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &55576001
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1228,7 +1228,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &359392024
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1237,7 +1237,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 359392023}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: -0}
   m_LocalScale: {x: 0.0204, y: 0.0204, z: 1}
   m_Children:
   - {fileID: 1454359256}
@@ -1246,7 +1246,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -353.9, y: -645.51}
+  m_AnchoredPosition: {x: -353.83, y: -645.51}
   m_SizeDelta: {x: 189.78, y: 122}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &359392025
@@ -1521,7 +1521,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &621285885
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1539,7 +1539,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -349.91, y: -645.51}
+  m_AnchoredPosition: {x: -349.84, y: -645.51}
   m_SizeDelta: {x: 189.78, y: 122}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &621285886
@@ -1649,7 +1649,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1023710032
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1658,7 +1658,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1023710031}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0.17}
+  m_LocalPosition: {x: 0, y: 0, z: -4.1}
   m_LocalScale: {x: 0.2, y: 0.2, z: 1}
   m_Children: []
   m_Father: {fileID: 590360804}
@@ -2212,7 +2212,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1159579758}
   m_LocalRotation: {x: 0.04751269, y: 0.019012542, z: 0.38339266, w: 0.9221665}
-  m_LocalPosition: {x: 15.072557, y: -2.4011579, z: 15.025646}
+  m_LocalPosition: {x: 15, y: -2, z: 15.025646}
   m_LocalScale: {x: 0.25, y: 0.14000002, z: 1}
   m_Children: []
   m_Father: {fileID: 1924657167}
@@ -2883,7 +2883,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1262854140
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3237,7 +3237,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0.5}
   m_AnchorMax: {x: 1, y: 0.5}
-  m_AnchoredPosition: {x: -722.97, y: -636.52}
+  m_AnchoredPosition: {x: -723.3, y: -636.52}
   m_SizeDelta: {x: 300, y: 84.7}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1397825173
@@ -3988,7 +3988,7 @@ Canvas:
   m_Enabled: 1
   serializedVersion: 3
   m_RenderMode: 2
-  m_Camera: {fileID: 0}
+  m_Camera: {fileID: 348186700}
   m_PlaneDistance: 100
   m_PixelPerfect: 0
   m_ReceivesEvents: 1
@@ -4407,7 +4407,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -365.924, y: -633.6}
+  m_AnchoredPosition: {x: -366.14, y: -633.6}
   m_SizeDelta: {x: 10.751, y: 3.7}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1930737103
@@ -4483,7 +4483,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 0, y: 0.5}
-  m_AnchoredPosition: {x: -8.71, y: -636.52}
+  m_AnchoredPosition: {x: -8.9, y: -636.52}
   m_SizeDelta: {x: 300, y: 84.7}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1957377571

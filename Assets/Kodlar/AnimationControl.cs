@@ -29,12 +29,14 @@ public class AnimationControl : MonoBehaviour
 
     public void watchAgain()
     {
-        animIntro.SetTrigger("fire");
+        //animIntro.SetTrigger("fire");
+        Debug.Log("watch again");
     }
 
     public void dontShowAgain()
     {
-        animIntro.StopPlayback();
+        //animIntro.StopPlayback();
+        Debug.Log("dont watch again");
     }
 
     public void showAnimationIntro()
