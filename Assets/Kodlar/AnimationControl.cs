@@ -6,15 +6,21 @@ public class AnimationControl : MonoBehaviour
     public Animator animIntro;
     public GameObject diziKupler;
     public GameObject gameCanvas;
-    void Start()
+
+    public void Start()
     {
         PlayerPrefs.DeleteAll();
         if (PlayerPrefs.GetInt("animIntro") == 0)
         {
+            //Screen.fullScreen = !Screen.fullScreen;
             diziKupler.SetActive(false);
             gameCanvas.SetActive(false);
-            animIntro.SetTrigger("fire");           
+            animIntro.SetTrigger("fire");
         }
+    }
+
+    public void initialGame()
+    {
        
     }
 
