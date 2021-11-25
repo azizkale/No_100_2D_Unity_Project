@@ -7,17 +7,18 @@ public class AnimationControl : MonoBehaviour
     public GameObject gameCanvas;
     void Start()
     {
-        PlayerPrefs.SetInt("animIntro", 0);
-        if (PlayerPrefs.GetInt("animIntro") == 0)
-        {
-            diziKupler.SetActive(false);
-            gameCanvas.SetActive(false);
-            animIntro.SetTrigger("fire");
-            PlayerPrefs.SetInt("animIntro", 1);
-        }
-        if (PlayerPrefs.GetInt("animIntro") == 1)
-        {
-        }
+        PlayerPrefs.DeleteAll();
+        //PlayerPrefs.SetInt("animIntro", 0);
+        //if (PlayerPrefs.GetInt("animIntro") == 0)
+        //{
+        //    diziKupler.SetActive(false);
+        //    gameCanvas.SetActive(false);
+        //    animIntro.SetTrigger("fire");
+        //    PlayerPrefs.SetInt("animIntro", 1);
+        //}
+        //if (PlayerPrefs.GetInt("animIntro") == 1)
+        //{
+        //}
         
 
     }
