@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Cube3Kod : MonoBehaviour
 {
@@ -9,6 +10,9 @@ public class Cube3Kod : MonoBehaviour
     bool ilkTiklama;
     bool availableMove = false; // if there are availables move(blue cube) it turns to true
     ScorControl scorControl;
+    //private object canvasGameObject;
+
+    public Text cubeText;
 
     void Start()
     {
@@ -35,7 +39,8 @@ public class Cube3Kod : MonoBehaviour
         {
             if (item.tag=="yesil")
             {               
-                index++;
+                index++;            
+
             }
         }
 
@@ -43,9 +48,10 @@ public class Cube3Kod : MonoBehaviour
         for (int i = 0; i < 255; i++)
         {            
             if (oyunKontrol.clonelar[i].tag!="yesil") // yeşil olan küp rengi değişmesin diye
-            {                
-                render.material.mainTexture = oyunKontrol.sayilar[index];
-             
+            {
+                //render.material.mainTexture = oyunKontrol.sayilar[index];
+                render.material.mainTexture = oyunKontrol.textures[0];
+
                 tag = "yesil";
                 oyunKontrol.clonelar[syc].layer = 2; // yeşil küpe tıklanmasın diye                
 
@@ -81,5 +87,14 @@ public class Cube3Kod : MonoBehaviour
             this.transform.rotation = Quaternion.Euler(-i * 30, 0, -180);
             yield return new WaitForSeconds(0.1f);
         }      
-    }    
+    }
+
+
+    public void addTextToCube(GameObject gameObject, string index)
+    {
+        gameObject.transform.SetParent(this.transform);
+
+        gameObject.AddComponent<TextMesh>().text = index;
+        gameObject.GetComponent<TextMesh>().font = Resources.GetBuiltinResource(typeof(Font), "Arial.ttf") as Font;
+    }
 }
