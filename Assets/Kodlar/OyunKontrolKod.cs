@@ -11,7 +11,7 @@ public class OyunKontrolKod : MonoBehaviour
     public Texture2D[] sayilar;
     public Shader myShader;
 
-    void Start()
+    public void Start()
     {
         Screen.fullScreen = !Screen.fullScreen; // to fit the screen to the device's screen
 

@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class AnimationControl : MonoBehaviour
 {
@@ -7,20 +8,14 @@ public class AnimationControl : MonoBehaviour
     public GameObject gameCanvas;
     void Start()
     {
-        PlayerPrefs.DeleteAll();
-        //PlayerPrefs.SetInt("animIntro", 0);
-        //if (PlayerPrefs.GetInt("animIntro") == 0)
-        //{
-        //    diziKupler.SetActive(false);
-        //    gameCanvas.SetActive(false);
-        //    animIntro.SetTrigger("fire");
-        //    PlayerPrefs.SetInt("animIntro", 1);
-        //}
-        //if (PlayerPrefs.GetInt("animIntro") == 1)
-        //{
-        //}
-        
-
+       
+        if (PlayerPrefs.GetInt("animIntro") == 0)
+        {
+            diziKupler.SetActive(false);
+            gameCanvas.SetActive(false);
+            animIntro.SetTrigger("fire");           
+        }
+       
     }
 
     private void Update()
@@ -30,23 +25,15 @@ public class AnimationControl : MonoBehaviour
 
     public void watchAgain()
     {
-        animIntro.SetTrigger("fire");
-        Debug.Log("watch again");
+        diziKupler.SetActive(false);
+        gameCanvas.SetActive(false);
+        animIntro.GetComponent<Animator>().Play("Intro2", -1, 0);
     }
 
     public void dontShowAgain()
     {
-        //animIntro.StopPlayback();
-        Debug.Log("dont watch again");
+        PlayerPrefs.SetInt("animIntro", 1);       
+        SceneManager.LoadScene("no100_11");
     }
-
-    public void showAnimationIntro()
-    {
-        if (PlayerPrefs.GetInt("animIntro") == 0)
-        {
-            animIntro.SetTrigger("fire");
-            PlayerPrefs.SetInt("animIntro", 1);
-        }
-
-    }
+   
 }
