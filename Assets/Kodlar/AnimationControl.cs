@@ -7,7 +7,7 @@ public class AnimationControl : MonoBehaviour
     public GameObject gameCanvas;
     void Start()
     {
-        PlayerPrefs.SetInt("animIntro", 0);
+        PlayerPrefs.SetInt("animIntro", 1);
         if (PlayerPrefs.GetInt("animIntro") == 0)
         {
             diziKupler.SetActive(false);
@@ -29,7 +29,7 @@ public class AnimationControl : MonoBehaviour
 
     public void watchAgain()
     {
-        //animIntro.SetTrigger("fire");
+        animIntro.SetTrigger("fire");
         Debug.Log("watch again");
     }
 
