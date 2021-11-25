@@ -8,7 +8,7 @@ public class AnimationControl : MonoBehaviour
     public GameObject gameCanvas;
     void Start()
     {
-       
+        PlayerPrefs.DeleteAll();
         if (PlayerPrefs.GetInt("animIntro") == 0)
         {
             diziKupler.SetActive(false);
