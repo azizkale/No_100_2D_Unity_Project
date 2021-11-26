@@ -106,7 +106,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   kup: {fileID: 6188094892856076802}
-  cubeText: {fileID: 0}
+  cubeText: {fileID: 3047945260072597752, guid: 26a41de35dd0c51448603fea367a72b7,
+    type: 3}
 --- !u!1 &7358370673764126513
 GameObject:
   m_ObjectHideFlags: 0
