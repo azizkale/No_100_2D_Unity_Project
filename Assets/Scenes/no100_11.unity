@@ -621,7 +621,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b1ae999791068a64db596a4b5b608402, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  kup: {fileID: 3889075188482743551, guid: b1d4142dbf56bfa4fb73f4cc338f88e1, type: 3}
+  kup: {fileID: 6188094892856076802, guid: 00f585605ceaba5478b5b48f1b2e11d1, type: 3}
   zemin: {fileID: 1354284502}
   textures:
   - {fileID: 2800000, guid: c088957a6528df24d8cbdab12d374084, type: 3}

@@ -10,9 +10,7 @@ public class Cube3Kod : MonoBehaviour
     bool ilkTiklama;
     bool availableMove = false; // if there are availables move(blue cube) it turns to true
     ScorControl scorControl;
-    //private object canvasGameObject;
 
-    public Text cubeText;
 
     void Start()
     {
@@ -49,8 +47,7 @@ public class Cube3Kod : MonoBehaviour
         {            
             if (oyunKontrol.clonelar[i].tag!="yesil") // yeşil olan küp rengi değişmesin diye
             {
-                //render.material.mainTexture = oyunKontrol.sayilar[index];
-                render.material.mainTexture = oyunKontrol.textures[0];
+                render.material.mainTexture = oyunKontrol.sayilar[index];
 
                 tag = "yesil";
                 oyunKontrol.clonelar[syc].layer = 2; // yeşil küpe tıklanmasın diye                
