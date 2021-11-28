@@ -621,12 +621,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b1ae999791068a64db596a4b5b608402, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  kup: {fileID: 6188094892856076802, guid: 00f585605ceaba5478b5b48f1b2e11d1, type: 3}
+  kup: {fileID: 3889075188482743551, guid: b1d4142dbf56bfa4fb73f4cc338f88e1, type: 3}
   zemin: {fileID: 1354284502}
   textures:
   - {fileID: 2800000, guid: c088957a6528df24d8cbdab12d374084, type: 3}
   - {fileID: 2800000, guid: cdf98169dd5221249939be38814b3529, type: 3}
-  - {fileID: 2800000, guid: 965dca3ddba3f6746a02096b21275c43, type: 3}
+  - {fileID: 2800000, guid: 63c1a200e58d1b044b6bd1780526dd43, type: 3}
   clonelar:
   - {fileID: 0}
   - {fileID: 0}
@@ -885,9 +885,9 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   sayilar:
-  - {fileID: 2800000, guid: daa198df5f7fcdc4a902777379092604, type: 3}
-  - {fileID: 2800000, guid: 6cc743f7a57003c45a4a6d3ce9b1ca15, type: 3}
-  - {fileID: 2800000, guid: 6a654e3e67a053342ab8b44899c9e41a, type: 3}
+  - {fileID: 2800000, guid: 3677124a0edefc941b8f729852769a55, type: 3}
+  - {fileID: 2800000, guid: 3677124a0edefc941b8f729852769a55, type: 3}
+  - {fileID: 2800000, guid: 3677124a0edefc941b8f729852769a55, type: 3}
   - {fileID: 2800000, guid: a6e9ea42ae32eaa46b1c8addc6f22515, type: 3}
   - {fileID: 2800000, guid: 61cbd459ca88bb3479ec6337dd9b8fb8, type: 3}
   - {fileID: 2800000, guid: 1969d9e4c57199040b180e8cf7b010ef, type: 3}
