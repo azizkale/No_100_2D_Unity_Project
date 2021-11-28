@@ -8,7 +8,4 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/no100_11.unity
     guid: ab45a423baa387e47976d62b784473b0
-  - enabled: 1
-    path: Assets/Scenes/IntroAnimation.unity
-    guid: bb1a3497cf6b60840b717cb28aa6fcb9
   m_configObjects: {}
