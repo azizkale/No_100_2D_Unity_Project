@@ -15,7 +15,7 @@ TagManager:
   - textScore
   - textHighScore
   - animationIntro
-  - cubetext
+  - ScorBoardObject
   layers:
   - Default
   - TransparentFX

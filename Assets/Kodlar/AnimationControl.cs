@@ -3,10 +3,10 @@ using UnityEngine.SceneManagement;
 
 public class AnimationControl : MonoBehaviour
 {
-    public Animator animIntro, animScorBoard;
+    public Animator animIntro;
     public GameObject diziKupler;
     public GameObject gameCanvas;
-
+    Animator animScorBoard;
 
     public void Start()
     {
@@ -17,7 +17,9 @@ public class AnimationControl : MonoBehaviour
             gameCanvas.SetActive(false);
             animIntro.SetTrigger("fire");
         }
-    }  
+
+
+    }
 
     public void watchAgain()
     {
@@ -31,12 +33,25 @@ public class AnimationControl : MonoBehaviour
         PlayerPrefs.SetInt("animIntro", 1);       
         SceneManager.LoadScene("no100_11");
     }
-   
+
     public void scoarBoardSwingig(int numberOfCube)
     {
-        if(numberOfCube == 3)
+        animScorBoard = GameObject.FindGameObjectWithTag("ScorBoardObject").GetComponent<Animator>();
+        if (numberOfCube == 3) {
             animScorBoard.SetTrigger("fireScorBoard");
-        else if (numberOfCube == 10)
+           
+        }
+        else if (numberOfCube == 9)
+        {
             animScorBoard.SetTrigger("fireScorBoard");
-    }
+            
+        }
+        else if (numberOfCube == 12)
+        {
+            animScorBoard.SetTrigger("fireScorBoard");
+           
+        }
+        else if (numberOfCube == 95)
+            { animScorBoard.GetComponent<Animator>().Play("SwningingOfScoreBoard", -1, 0f); }
+        }
 }

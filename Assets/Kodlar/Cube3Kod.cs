@@ -1,6 +1,5 @@
 ﻿using System.Collections;
 using UnityEngine;
-using UnityEngine.UI;
 
 public class Cube3Kod : MonoBehaviour
 {
@@ -40,6 +39,7 @@ public class Cube3Kod : MonoBehaviour
             {               
                 index++;
                 animcontrol.scoarBoardSwingig(index);
+
             }
         }
 
@@ -51,6 +51,7 @@ public class Cube3Kod : MonoBehaviour
                 render.material.mainTexture = oyunKontrol.sayilar[index];
 
                 tag = "yesil";
+
                 oyunKontrol.clonelar[syc].layer = 2; // yeşil küpe tıklanmasın diye                
 
                 if ((i == syc + 3 || i == syc - 3 || i == syc + 48 || i == syc - 48 || i == syc + 30 || i == syc - 30 || i == syc + 34 || i == syc - 34)) // tıklanan seçilir kılavuz kareler belirlenir mavi yapılır

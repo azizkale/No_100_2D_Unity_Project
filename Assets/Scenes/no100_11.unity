@@ -1029,7 +1029,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animIntro: {fileID: 348186702}
-  animScorBoard: {fileID: 1571909698}
   diziKupler: {fileID: 1354284502}
   gameCanvas: {fileID: 2015091412}
 --- !u!1 &309001314
@@ -3850,7 +3849,7 @@ GameObject:
   - component: {fileID: 1571909698}
   m_Layer: 0
   m_Name: ScoreBoard-Background
-  m_TagString: Untagged
+  m_TagString: ScorBoardObject
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
