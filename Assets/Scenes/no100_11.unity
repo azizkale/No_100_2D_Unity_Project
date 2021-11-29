@@ -246,7 +246,7 @@ MonoBehaviour:
     lineCount: 5
     pageCount: 1
     materialCount: 1
-  m_havePropertiesChanged: 1
+  m_havePropertiesChanged: 0
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_spriteAnimator: {fileID: 0}
@@ -406,11 +406,11 @@ MonoBehaviour:
     lineCount: 1
     pageCount: 1
     materialCount: 1
-  m_havePropertiesChanged: 1
+  m_havePropertiesChanged: 0
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_spriteAnimator: {fileID: 0}
-  m_isInputParsingRequired: 1
+  m_isInputParsingRequired: 0
   m_inputSource: 0
   m_hasFontAssetChanged: 0
   m_subTextObjects:
@@ -624,7 +624,7 @@ MonoBehaviour:
   kup: {fileID: 3889075188482743551, guid: b1d4142dbf56bfa4fb73f4cc338f88e1, type: 3}
   zemin: {fileID: 1354284502}
   textures:
-  - {fileID: 2800000, guid: 27d89b9d2d711c14ba4f332f05f86e3a, type: 3}
+  - {fileID: 0}
   - {fileID: 2800000, guid: c0756013b3467bb45ad915328bc550fd, type: 3}
   - {fileID: 2800000, guid: 965dca3ddba3f6746a02096b21275c43, type: 3}
   clonelar:
