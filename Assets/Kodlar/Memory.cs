@@ -5,7 +5,6 @@ public class Memory : MonoBehaviour
     OyunKontrolKod oyunKontrol;
     public Texture2D[] textures;
 
-    // Start is called before the first frame update
     void Start()
     {
         oyunKontrol = GameObject.FindGameObjectWithTag("oyunKontrolTag").GetComponent<OyunKontrolKod>();

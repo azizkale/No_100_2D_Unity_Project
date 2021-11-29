@@ -10,13 +10,14 @@ public class Cube3Kod : MonoBehaviour
     bool ilkTiklama;
     bool availableMove = false; // if there are availables move(blue cube) it turns to true
     ScorControl scorControl;
-
+    AnimationControl animcontrol;
 
     void Start()
     {
         render = GetComponent<Renderer>();
         oyunKontrol = GameObject.FindGameObjectWithTag("oyunKontrolTag").GetComponent<OyunKontrolKod>();
         scorControl = new ScorControl();
+        animcontrol = new AnimationControl();
     }
 
     void OnMouseDown()
@@ -37,8 +38,8 @@ public class Cube3Kod : MonoBehaviour
         {
             if (item.tag=="yesil")
             {               
-                index++;            
-
+                index++;
+                animcontrol.scoarBoardSwingig(index);
             }
         }
 

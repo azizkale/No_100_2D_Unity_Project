@@ -3,9 +3,10 @@ using UnityEngine.SceneManagement;
 
 public class AnimationControl : MonoBehaviour
 {
-    public Animator animIntro;
+    public Animator animIntro, animScorBoard;
     public GameObject diziKupler;
     public GameObject gameCanvas;
+
 
     public void Start()
     {
@@ -31,4 +32,11 @@ public class AnimationControl : MonoBehaviour
         SceneManager.LoadScene("no100_11");
     }
    
+    public void scoarBoardSwingig(int numberOfCube)
+    {
+        if(numberOfCube == 3)
+            animScorBoard.SetTrigger("fireScorBoard");
+        else if (numberOfCube == 10)
+            animScorBoard.SetTrigger("fireScorBoard");
+    }
 }
