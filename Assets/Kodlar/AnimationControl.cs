@@ -37,21 +37,23 @@ public class AnimationControl : MonoBehaviour
     public void scoarBoardSwingig(int numberOfCube)
     {
         animScorBoard = GameObject.FindGameObjectWithTag("ScorBoardObject").GetComponent<Animator>();
-        if (numberOfCube == 3) {
-            animScorBoard.SetTrigger("fireScorBoard");
-           
-        }
-        else if (numberOfCube == 9)
-        {
-            animScorBoard.SetTrigger("fireScorBoard");
-            
-        }
-        else if (numberOfCube == 12)
-        {
-            animScorBoard.SetTrigger("fireScorBoard");
-           
-        }
+        if (numberOfCube == 40) 
+            animScorBoard.SetBool("playScoreBoardAnimation", true);           
+        
+        else if (numberOfCube == 60)        
+            animScorBoard.SetBool("playScoreBoardAnimation", true);
+        
+        else if (numberOfCube == 70)                  
+            animScorBoard.SetBool("playScoreBoardAnimation", true);
+        
+        else if (numberOfCube == 85)
+            animScorBoard.SetBool("playScoreBoardAnimation", true);
+
         else if (numberOfCube == 95)
-            { animScorBoard.GetComponent<Animator>().Play("SwningingOfScoreBoard", -1, 0f); }
-        }
-}
+            animScorBoard.SetBool("playScoreBoardAnimation", true);
+        
+        else
+            animScorBoard.SetBool("playScoreBoardAnimation", false);
+
+    }
+    }
