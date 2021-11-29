@@ -56,4 +56,4 @@ public class AnimationControl : MonoBehaviour
             animScorBoard.SetBool("playScoreBoardAnimation", false);
 
     }
-    }
+}
