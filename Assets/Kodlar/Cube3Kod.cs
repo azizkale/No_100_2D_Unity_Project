@@ -87,12 +87,4 @@ public class Cube3Kod : MonoBehaviour
         }      
     }
 
-
-    public void addTextToCube(GameObject gameObject, string index)
-    {
-        gameObject.transform.SetParent(this.transform);
-
-        gameObject.AddComponent<TextMesh>().text = index;
-        gameObject.GetComponent<TextMesh>().font = Resources.GetBuiltinResource(typeof(Font), "Arial.ttf") as Font;
-    }
 }
