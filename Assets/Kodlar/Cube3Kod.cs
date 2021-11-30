@@ -22,7 +22,7 @@ public class Cube3Kod : MonoBehaviour
     void OnMouseDown()
     {
         KutularaTiklama();      
-        StartCoroutine(DonmeAnimasyonu());
+        //StartCoroutine(DonmeAnimasyonu());
         Debug.Log(name);
     } 
     
@@ -40,7 +40,7 @@ public class Cube3Kod : MonoBehaviour
                 index++;
                 animcontrol.scoarBoardSwingig(index);
 
-                StartCoroutine(fallingAnimaTion(index, oyunKontrol.clonelar));
+                StartCoroutine(fallingAnimaTion());
             }
         }
 
@@ -62,7 +62,6 @@ public class Cube3Kod : MonoBehaviour
                     oyunKontrol.clonelar[i].layer = 0;
 
                     availableMove = true;
-
                 }
 
                 else // yeşil ve mavi olmayanlar kırmızı (tagli) olur
@@ -80,29 +79,35 @@ public class Cube3Kod : MonoBehaviour
         scorControl.setAndSaveScores(index);
     }      
 
-    public IEnumerator DonmeAnimasyonu()
-    {
-        for (int i = 0; i <= 3; i++)
-        {
-            this.transform.rotation = Quaternion.Euler(-i * 30, 0, -180);
-            yield return new WaitForSeconds(0.1f);
-        }      
-    }
+    //public IEnumerator DonmeAnimasyonu()
+    //{
+    //    for (int i = 0; i <= 3; i++)
+    //    {
+    //        this.transform.rotation = Quaternion.Euler(-i * 30, 0, -180);
+    //        yield return new WaitForSeconds(0.1f);
+    //    }      
+    //}
 
-    public IEnumerator fallingAnimaTion(int index, GameObject[] cubes)
-    {
-        if (index == 5)
-        {
-            foreach(GameObject item in cubes)
+    public IEnumerator fallingAnimaTion()
+    {        
+            foreach(GameObject item in oyunKontrol.clonelar)
+            {
+            if (item != null && item.tag == "yesil")
             {
                 for (int i = 0; i <= 90; i++)
                 {
-                    this.transform.position = new Vector3(this.transform.position.x, this.transform.position.y - i, this.transform.position.z - i);
+                    item.transform.position = new Vector3(
+                        item.transform.position.x,
+                        item.transform.position.y - i,
+                        item.transform.position.z - i
+                        );
+                    this.transform.rotation = Quaternion.Euler(-i * 5, 0, -180);
                     yield return new WaitForSeconds(0.1f);
                 }
             }
-        }
-        
+            else
+                continue;
+            }        
     }
 
 }
