@@ -21,8 +21,8 @@ public class Cube3Kod : MonoBehaviour
 
     void OnMouseDown()
     {
-        KutularaTiklama();      
-        //StartCoroutine(DonmeAnimasyonu());
+        KutularaTiklama();
+        StartCoroutine(DonmeAnimasyonu());
         Debug.Log(name);
     } 
     
@@ -39,8 +39,6 @@ public class Cube3Kod : MonoBehaviour
             {               
                 index++;
                 animcontrol.scoarBoardSwingig(index);
-
-                StartCoroutine(fallingAnimaTion());
             }
         }
 
@@ -77,37 +75,16 @@ public class Cube3Kod : MonoBehaviour
 
         //--------- in every click it sets the score----------------
         scorControl.setAndSaveScores(index);
-    }      
-
-    //public IEnumerator DonmeAnimasyonu()
-    //{
-    //    for (int i = 0; i <= 3; i++)
-    //    {
-    //        this.transform.rotation = Quaternion.Euler(-i * 30, 0, -180);
-    //        yield return new WaitForSeconds(0.1f);
-    //    }      
-    //}
-
-    public IEnumerator fallingAnimaTion()
-    {        
-            foreach(GameObject item in oyunKontrol.clonelar)
-            {
-            if (item != null && item.tag == "yesil")
-            {
-                for (int i = 0; i <= 90; i++)
-                {
-                    item.transform.position = new Vector3(
-                        item.transform.position.x,
-                        item.transform.position.y - i,
-                        item.transform.position.z - i
-                        );
-                    this.transform.rotation = Quaternion.Euler(-i * 5, 0, -180);
-                    yield return new WaitForSeconds(0.1f);
-                }
-            }
-            else
-                continue;
-            }        
     }
 
+    public IEnumerator DonmeAnimasyonu()
+    {
+        int index = 1;
+        for (int i = 0; i <= index; i++)
+        {           
+            this.transform.rotation = Quaternion.Euler(-i * 5, 0, -180);
+            yield return new WaitForSeconds(0.1f);
+            index++;
+        }
+    }
 }
