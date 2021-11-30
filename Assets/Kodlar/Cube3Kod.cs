@@ -39,6 +39,8 @@ public class Cube3Kod : MonoBehaviour
             {               
                 index++;
                 animcontrol.scoarBoardSwingig(index);
+
+                StartCoroutine(fallingAnimaTion(index, oyunKontrol.clonelar));
             }
         }
 
@@ -85,6 +87,22 @@ public class Cube3Kod : MonoBehaviour
             this.transform.rotation = Quaternion.Euler(-i * 30, 0, -180);
             yield return new WaitForSeconds(0.1f);
         }      
+    }
+
+    public IEnumerator fallingAnimaTion(int index, GameObject[] cubes)
+    {
+        if (index == 5)
+        {
+            foreach(GameObject item in cubes)
+            {
+                for (int i = 0; i <= 90; i++)
+                {
+                    this.transform.position = new Vector3(this.transform.position.x, this.transform.position.y - i, this.transform.position.z - i);
+                    yield return new WaitForSeconds(0.1f);
+                }
+            }
+        }
+        
     }
 
 }
