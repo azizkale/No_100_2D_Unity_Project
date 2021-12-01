@@ -11,13 +11,14 @@ public class OyunKontrolKod : MonoBehaviour
     public GameObject[] clonelar;
     public Texture2D[] sayilar;
     public Shader myShader;
-
+    OyunKontrolKod oyunKontrol;
 
     void Start()
     {
         KupleriOlusturma();
         zemin.transform.position = new Vector3(-7.38f,0.25f,-2.5f);
         zemin.transform.rotation = Quaternion.Euler(new Vector3(-90f, 0f, 0f));
+        oyunKontrol = GameObject.FindGameObjectWithTag("oyunKontrolTag").GetComponent<OyunKontrolKod>();
     }   
 
     public void KupleriOlusturma()
@@ -55,14 +56,19 @@ public class OyunKontrolKod : MonoBehaviour
 
     public void resetGame()
     {
-        foreach (GameObject item in clonelar)
+        foreach (GameObject item in oyunKontrol.clonelar)
         {
             item.tag = "mavi";
             item.layer = 0;
             item.GetComponent<Renderer>().material.mainTexture = textures[1];
             ScorControl.score.text = "0";
-            PlayerPrefs.SetInt("score", 0);            
+            PlayerPrefs.SetInt("score", 0);
+            // code below provides to make mavi all of the cubes'tags, otherwise it is loaded from memory.Because when I try to load scene firstly it reads "from memory"
+            PlayerPrefs.SetString("tagName: " + item.name, "mavi");
         }
+        
+        // code below provides to load the scene again to reset game.
+        //I couldn't find out a way to stop fucking Coroutines
         SceneManager.LoadScene("no100_11");
 
     }

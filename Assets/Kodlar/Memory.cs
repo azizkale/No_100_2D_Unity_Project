@@ -27,7 +27,6 @@ public class Memory : MonoBehaviour
         PlayerPrefs.SetInt(cubeName, index);
     }
 
-    int index = 0;
     public void startFromMemory()
     {
         foreach (GameObject item in oyunKontrol.clonelar)
@@ -37,7 +36,6 @@ public class Memory : MonoBehaviour
                 item.tag = "yesil";
                 item.layer = 2; // yeşil küpe tıklanmasın diye
                 item.GetComponent<Renderer>().material.mainTexture = oyunKontrol.sayilar[PlayerPrefs.GetInt("texture:" + item.name)];
-                //index++;
                 item.transform.rotation = Quaternion.Euler(90, 0, -180);
 
                 //starts animation for cubes with yesil tag
