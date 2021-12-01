@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class OyunKontrolKod : MonoBehaviour
 {
@@ -60,11 +61,12 @@ public class OyunKontrolKod : MonoBehaviour
             item.layer = 0;
             item.GetComponent<Renderer>().material.mainTexture = textures[1];
             ScorControl.score.text = "0";
-            PlayerPrefs.SetInt("score", 0);
-            
+            PlayerPrefs.SetInt("score", 0);            
         }
-    }
-   
+        SceneManager.LoadScene("no100_11");
 
-   
+    }
+
+
+
 }

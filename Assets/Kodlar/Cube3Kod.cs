@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections;
+﻿using System.Collections;
 using UnityEngine;
 
 public class Cube3Kod : MonoBehaviour
@@ -12,6 +11,7 @@ public class Cube3Kod : MonoBehaviour
     ScorControl scorControl;
     AnimationControl animcontrol;
     Memory memo;
+
     void Start()
     {
         render = GetComponent<Renderer>();
