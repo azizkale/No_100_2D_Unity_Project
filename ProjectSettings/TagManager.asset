@@ -16,6 +16,7 @@ TagManager:
   - textHighScore
   - animationIntro
   - ScorBoardObject
+  - HidingAnimation
   layers:
   - Default
   - TransparentFX

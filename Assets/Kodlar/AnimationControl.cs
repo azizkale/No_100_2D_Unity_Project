@@ -6,7 +6,7 @@ public class AnimationControl : MonoBehaviour
     public Animator animIntro;
     public GameObject diziKupler;
     public GameObject gameCanvas;
-    Animator animScorBoard;
+    Animator animScorBoard, animHidingAvatar;
 
     public void Start()
     {
@@ -37,10 +37,32 @@ public class AnimationControl : MonoBehaviour
     public void scoarBoardSwingig(int numberOfCube)
     {
         animScorBoard = GameObject.FindGameObjectWithTag("ScorBoardObject").GetComponent<Animator>();
-        if (numberOfCube == 20 || numberOfCube ==40 || numberOfCube == 60 || numberOfCube == 80 || (numberOfCube >= 95 && numberOfCube <= 100)) 
-            animScorBoard.SetBool("playScoreBoardAnimation", true);   
+
+        if (numberOfCube == 20 || numberOfCube == 40 || numberOfCube == 60 || numberOfCube == 80 || (numberOfCube >= 95 && numberOfCube <= 100))
+        {
+            animScorBoard.SetBool("playScoreBoardAnimation", true);
+        }
+
         else
+        {
             animScorBoard.SetBool("playScoreBoardAnimation", false);
+        }
+
+    }
+
+    public void hidingAvatarAnimation(int numberOfCube)
+    {
+        animHidingAvatar = GameObject.FindGameObjectWithTag("HidingAnimation").GetComponent<Animator>();
+        //if (numberOfCube == 5 || numberOfCube == 10 || numberOfCube == 60 || numberOfCube == 80 || (numberOfCube >= 95 && numberOfCube <= 100))
+        //{ 
+            //animHidingAvatar.SetTrigger("showAvatar");
+            //animHidingAvatar.GetComponent<Animator>().Play("Hiding", -1, 0);
+            //animHidingAvatar.StopPlayback();
+            animHidingAvatar.SetInteger("showAvatar", numberOfCube);
+
+        //}
+        //else
+            //animHidingAvatar.SetBool("showAvatar", false);
 
     }
 }

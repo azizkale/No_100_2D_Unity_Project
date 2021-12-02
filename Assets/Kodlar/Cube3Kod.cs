@@ -43,6 +43,7 @@ public class Cube3Kod : MonoBehaviour
             {   
                 index++;
                 animcontrol.scoarBoardSwingig(index);
+                animcontrol.hidingAvatarAnimation(index);
             }
         }
 
