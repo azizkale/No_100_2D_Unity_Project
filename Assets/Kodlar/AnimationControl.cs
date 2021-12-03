@@ -53,10 +53,11 @@ public class AnimationControl : MonoBehaviour
     public void hidingAvatarAnimation(int numberOfCube)
     {
         animHidingAvatar = GameObject.FindGameObjectWithTag("HidingAnimation").GetComponent<Animator>();
-       
-            animHidingAvatar.SetInteger("showAvatar1", numberOfCube);
-            animHidingAvatar.SetInteger("showAvatar2", numberOfCube);
-            animHidingAvatar.SetInteger("showAvatar3", numberOfCube);
-            animHidingAvatar.SetInteger("showAvatar4", numberOfCube);
+
+
+        if (numberOfCube == 20 || numberOfCube == 40 || numberOfCube == 60 || numberOfCube == 80 || (numberOfCube >= 95 && numberOfCube <= 100))
+            animHidingAvatar.SetBool("showAnimation", true);
+        else
+            animHidingAvatar.SetBool("showAnimation", false);
     }
 }
