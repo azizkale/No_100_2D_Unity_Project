@@ -1,4 +1,5 @@
 ﻿using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class Cube3Kod : MonoBehaviour
@@ -24,7 +25,7 @@ public class Cube3Kod : MonoBehaviour
     void OnMouseDown()
     {
         KutularaTiklama();       
-        Debug.Log(name);
+        Debug.Log(name);        
     } 
     
    
@@ -32,7 +33,7 @@ public class Cube3Kod : MonoBehaviour
     {
         int index = 0;
         int syc = System.Int32.Parse(this.name);// clone küpün adını int e çevirir
-        
+       
         //spinning animation
         StartCoroutine(DonmeAnimasyonu(oyunKontrol.clonelar[syc]));
 
@@ -44,6 +45,7 @@ public class Cube3Kod : MonoBehaviour
                 index++;
                 animcontrol.scoarBoardSwingig(index);
                 animcontrol.hidingAvatarAnimation(index);
+                StartCoroutine(fallingAnimation(index));
             }
         }
 
@@ -92,6 +94,27 @@ public class Cube3Kod : MonoBehaviour
             go.transform.rotation = Quaternion.Euler(-i * 5, 0, -180);
             yield return new WaitForSeconds(0.1f);
             index++;
+        }
+    }
+
+    public IEnumerator fallingAnimation( int scor)
+    {
+        if (scor == 50)
+        {
+            foreach (GameObject cube in oyunKontrol.clonelar)
+            {
+                if (cube.GetComponent<MeshRenderer>().enabled)
+                {
+                    for (int i = 0; i <= 10; i++)
+                    {
+                        cube.transform.position = new Vector3(
+                            cube.transform.position.x,
+                            cube.transform.position.y - i,
+                            cube.transform.position.z - 1);
+                        yield return new WaitForSeconds(0.0002f);
+                    }
+                }
+            }
         }
     }
 }
