@@ -24,6 +24,7 @@ public class Cube3Kod : MonoBehaviour
 
     void OnMouseDown()
     {
+        availableMove = false;
         KutularaTiklama();       
         Debug.Log(name);        
     } 
@@ -33,11 +34,11 @@ public class Cube3Kod : MonoBehaviour
     {
         int index = 0;
         int syc = System.Int32.Parse(this.name);// clone küpün adını int e çevirir
-
-        availableMove = false; // to control if tge game finish
         
         //spinning animation
         StartCoroutine(DonmeAnimasyonu(oyunKontrol.clonelar[syc]));
+
+        
 
         // altattaki foreach döngüsü yesil olan clone küpe sayı veriri
         foreach (GameObject item in oyunKontrol.clonelar)
@@ -46,10 +47,11 @@ public class Cube3Kod : MonoBehaviour
             {   
                 index++;
                 animcontrol.scoarBoardSwingig(index);
-                animcontrol.hidingAvatarAnimation(index);               
+                animcontrol.hidingAvatarAnimation(index);
             }
-        }
 
+        }
+     
         //alttaki for döngüsü ile  her tıklandığında tüm clone küpler taranır ve mavi kırmızı veya yeşil olur.
         for (int i = 0; i < 255; i++)
         {            
@@ -65,16 +67,15 @@ public class Cube3Kod : MonoBehaviour
                     oyunKontrol.clonelar[i].GetComponent<Renderer>().material.mainTexture = oyunKontrol.textures[1];
                     oyunKontrol.clonelar[i].tag = "mavi";
                     oyunKontrol.clonelar[i].layer = 0;
-
-                    availableMove = true;
+                    availableMove = true; // to control if tge game finish
                 }
 
                 else // yeşil ve mavi olmayanlar kırmızı (tagli) olur
                 {
                     oyunKontrol.clonelar[i].GetComponent<Renderer>().material.mainTexture = oyunKontrol.textures[2];
                     oyunKontrol.clonelar[i].tag = "kirmizi";
-                    oyunKontrol.clonelar[i].layer = 2;
-                }                
+                    oyunKontrol.clonelar[i].layer = 2;                    
+                }
             }            
         }
 
@@ -122,7 +123,7 @@ public class Cube3Kod : MonoBehaviour
     }
 
     public void gameOver(bool availableMove, int score )
-    {        
+    {
         if (availableMove == false)
         {
             if (score < 100)
