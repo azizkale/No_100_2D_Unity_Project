@@ -111,7 +111,7 @@ public class Cube3Kod : MonoBehaviour
                             cube.transform.position.x,
                             cube.transform.position.y - i,
                             cube.transform.position.z - 1);
-                        yield return new WaitForSeconds(0.0002f);
+                        yield return new WaitForSeconds(0.0001f);
                     }
                 }
             }
