@@ -17,6 +17,7 @@ TagManager:
   - animationIntro
   - ScorBoardObject
   - HidingAnimation
+  - finalSceneAnim
   layers:
   - Default
   - TransparentFX

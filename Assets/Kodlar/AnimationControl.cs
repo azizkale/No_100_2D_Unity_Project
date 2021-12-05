@@ -6,7 +6,7 @@ public class AnimationControl : MonoBehaviour
     public Animator animIntro;
     public GameObject diziKupler;
     public GameObject gameCanvas;
-    Animator animScorBoard, animHidingAvatar;
+    Animator animScorBoard, animHidingAvatar, animFinalScene;
 
     public void Start()
     {
@@ -57,5 +57,14 @@ public class AnimationControl : MonoBehaviour
             animHidingAvatar.SetBool("showAnimation", true);
         else
             animHidingAvatar.SetBool("showAnimation", false);
+    }
+
+    public void finalSceneAnimation(int score)
+    {
+        if (score == 5)
+        {
+            animFinalScene = GameObject.FindGameObjectWithTag("finalSceneAnim").GetComponent<Animator>();
+            animFinalScene.SetTrigger("finalScene");
+        }
     }
 }

@@ -46,6 +46,7 @@ public class Cube3Kod : MonoBehaviour
                 animcontrol.scoarBoardSwingig(index);
                 animcontrol.hidingAvatarAnimation(index);
                 StartCoroutine(fallingAnimation(index));
+                animcontrol.finalSceneAnimation(index);
             }
         }
 
@@ -99,7 +100,7 @@ public class Cube3Kod : MonoBehaviour
 
     public IEnumerator fallingAnimation( int scor)
     {
-        if (scor == 50)
+        if (scor == 5)
         {
             foreach (GameObject cube in oyunKontrol.clonelar)
             {
