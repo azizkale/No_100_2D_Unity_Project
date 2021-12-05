@@ -18,6 +18,7 @@ TagManager:
   - ScorBoardObject
   - HidingAnimation
   - finalSceneAnim
+  - gameFailure
   layers:
   - Default
   - TransparentFX

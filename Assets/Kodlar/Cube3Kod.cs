@@ -127,10 +127,11 @@ public class Cube3Kod : MonoBehaviour
         {
             if (score < 100)
             {
-                Debug.Log("kazanamadınız");
+                animcontrol.gameFailureAnimation();
+                StartCoroutine(fallingAnimation());
             }
 
-            if (score > 80)
+            if (score == 100)
             {
                 animcontrol.finalSceneAnimation();
                 StartCoroutine(fallingAnimation());

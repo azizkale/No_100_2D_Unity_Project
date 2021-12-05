@@ -6,7 +6,7 @@ public class AnimationControl : MonoBehaviour
     public Animator animIntro;
     public GameObject diziKupler;
     public GameObject gameCanvas;
-    Animator animScorBoard, animHidingAvatar, animFinalScene;
+    Animator animScorBoard, animHidingAvatar, animFinalScene, animFailure;
 
     public void Start()
     {
@@ -63,6 +63,12 @@ public class AnimationControl : MonoBehaviour
     {       
         animFinalScene = GameObject.FindGameObjectWithTag("finalSceneAnim").GetComponent<Animator>();
         animFinalScene.SetTrigger("finalScene");        
+    }
+
+    public void gameFailureAnimation()
+    {
+        animFailure = GameObject.FindGameObjectWithTag("gameFailure").GetComponent<Animator>();
+        animFailure.SetTrigger("gameFailure");        
     }
     
 }
