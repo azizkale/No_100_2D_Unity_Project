@@ -11,7 +11,7 @@ public class Cube3Kod : MonoBehaviour
     bool availableMove; // if there are availables move(blue cube) it turns to true
     ScorControl scorControl;
     AnimationControl animcontrol;
-    Memory memo;
+    Memory memo;    
 
     void Start()
     {
@@ -122,8 +122,8 @@ public class Cube3Kod : MonoBehaviour
     }
 
     public void gameOver(bool availableMove, int score )
-    {
-        if (!availableMove)
+    {        
+        if (availableMove == false)
         {
             if (score < 100)
             {

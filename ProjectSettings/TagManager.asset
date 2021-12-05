@@ -19,6 +19,7 @@ TagManager:
   - HidingAnimation
   - finalSceneAnim
   - gameFailure
+  - gameovertext
   layers:
   - Default
   - TransparentFX
