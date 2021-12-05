@@ -7,8 +7,8 @@ public class Cube3Kod : MonoBehaviour
     Renderer render;
     public GameObject kup;
     OyunKontrolKod oyunKontrol;
-    bool ilkTiklama;
-    bool availableMove = false; // if there are availables move(blue cube) it turns to true
+    //bool ilkTiklama;
+    bool availableMove; // if there are availables move(blue cube) it turns to true
     ScorControl scorControl;
     AnimationControl animcontrol;
     Memory memo;
@@ -33,7 +33,9 @@ public class Cube3Kod : MonoBehaviour
     {
         int index = 0;
         int syc = System.Int32.Parse(this.name);// clone küpün adını int e çevirir
-       
+
+        availableMove = false; // to control if tge game finish
+        
         //spinning animation
         StartCoroutine(DonmeAnimasyonu(oyunKontrol.clonelar[syc]));
 
@@ -44,9 +46,7 @@ public class Cube3Kod : MonoBehaviour
             {   
                 index++;
                 animcontrol.scoarBoardSwingig(index);
-                animcontrol.hidingAvatarAnimation(index);
-                StartCoroutine(fallingAnimation(index));
-                animcontrol.finalSceneAnimation(index);
+                animcontrol.hidingAvatarAnimation(index);               
             }
         }
 
@@ -85,6 +85,10 @@ public class Cube3Kod : MonoBehaviour
 
         //--------- in every click it sets the score----------------
         scorControl.setAndSaveScores(index);
+
+        // code below checks that tge game finished or goes on
+        gameOver(availableMove, index);
+
     }
 
     public IEnumerator DonmeAnimasyonu(GameObject go) // arbitary variable
@@ -98,23 +102,38 @@ public class Cube3Kod : MonoBehaviour
         }
     }
 
-    public IEnumerator fallingAnimation( int scor)
+    public IEnumerator fallingAnimation()
     {
-        if (scor == 5)
+         foreach (GameObject cube in oyunKontrol.clonelar)
         {
-            foreach (GameObject cube in oyunKontrol.clonelar)
+            // fall the cudes whose MeshRenderer is enable and whose tag is not kirmizi
+            if (cube.GetComponent<MeshRenderer>().enabled && cube.tag != "kirmizi")
             {
-                if (cube.GetComponent<MeshRenderer>().enabled)
+                for (int i = 0; i <= 10; i++)
                 {
-                    for (int i = 0; i <= 10; i++)
-                    {
-                        cube.transform.position = new Vector3(
-                            cube.transform.position.x,
-                            cube.transform.position.y - i,
-                            cube.transform.position.z - 1);
-                        yield return new WaitForSeconds(0.0001f);
-                    }
+                    cube.transform.position = new Vector3(
+                        cube.transform.position.x,
+                        cube.transform.position.y - i,
+                        cube.transform.position.z - 1);
+                    yield return new WaitForSeconds(0.0001f);
                 }
+            }            
+        }
+    }
+
+    public void gameOver(bool availableMove, int score )
+    {
+        if (!availableMove)
+        {
+            if (score < 100)
+            {
+                Debug.Log("kazanamadınız");
+            }
+
+            if (score > 80)
+            {
+                animcontrol.finalSceneAnimation();
+                StartCoroutine(fallingAnimation());
             }
         }
     }

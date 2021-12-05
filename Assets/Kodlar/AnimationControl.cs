@@ -59,12 +59,10 @@ public class AnimationControl : MonoBehaviour
             animHidingAvatar.SetBool("showAnimation", false);
     }
 
-    public void finalSceneAnimation(int score)
-    {
-        if (score == 5)
-        {
-            animFinalScene = GameObject.FindGameObjectWithTag("finalSceneAnim").GetComponent<Animator>();
-            animFinalScene.SetTrigger("finalScene");
-        }
+    public void finalSceneAnimation()
+    {       
+        animFinalScene = GameObject.FindGameObjectWithTag("finalSceneAnim").GetComponent<Animator>();
+        animFinalScene.SetTrigger("finalScene");        
     }
+    
 }
