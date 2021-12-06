@@ -7,8 +7,6 @@ public class Cube3Kod : MonoBehaviour
     Renderer render;
     public GameObject kup;
     OyunKontrolKod oyunKontrol;
-    //bool ilkTiklama;
-    bool availableMove; // if there are availables move(blue cube) it turns to true
     ScorControl scorControl;
     AnimationControl animcontrol;
     Memory memo;    
@@ -23,8 +21,7 @@ public class Cube3Kod : MonoBehaviour
     }
 
     void OnMouseDown()
-    {
-        availableMove = false;
+    {        
         KutularaTiklama();       
         Debug.Log(name);        
     } 
@@ -38,7 +35,7 @@ public class Cube3Kod : MonoBehaviour
         //spinning animation
         StartCoroutine(DonmeAnimasyonu(oyunKontrol.clonelar[syc]));
 
-        
+      
 
         // altattaki foreach döngüsü yesil olan clone küpe sayı veriri
         foreach (GameObject item in oyunKontrol.clonelar)
@@ -49,13 +46,12 @@ public class Cube3Kod : MonoBehaviour
                 animcontrol.scoarBoardSwingig(index);
                 animcontrol.hidingAvatarAnimation(index);
             }
-
         }
-     
+
         //alttaki for döngüsü ile  her tıklandığında tüm clone küpler taranır ve mavi kırmızı veya yeşil olur.
         for (int i = 0; i < 255; i++)
         {            
-            if (oyunKontrol.clonelar[i].tag!="yesil") // yeşil olan küp rengi değişmesin diye
+            if (oyunKontrol.clonelar[i].tag!="yesil" && oyunKontrol.clonelar[i].GetComponent<MeshRenderer>().enabled) // yeşil olan küp rengi değişmesin diye
             {
                 tag = "yesil";
                 render.material.mainTexture = oyunKontrol.sayilar[index];                
@@ -67,14 +63,14 @@ public class Cube3Kod : MonoBehaviour
                     oyunKontrol.clonelar[i].GetComponent<Renderer>().material.mainTexture = oyunKontrol.textures[1];
                     oyunKontrol.clonelar[i].tag = "mavi";
                     oyunKontrol.clonelar[i].layer = 0;
-                    availableMove = true; // to control if tge game finish
+                   
                 }
 
                 else // yeşil ve mavi olmayanlar kırmızı (tagli) olur
                 {
                     oyunKontrol.clonelar[i].GetComponent<Renderer>().material.mainTexture = oyunKontrol.textures[2];
                     oyunKontrol.clonelar[i].tag = "kirmizi";
-                    oyunKontrol.clonelar[i].layer = 2;                    
+                    oyunKontrol.clonelar[i].layer = 2;
                 }
             }            
         }
@@ -88,7 +84,7 @@ public class Cube3Kod : MonoBehaviour
         scorControl.setAndSaveScores(index);
 
         // code below checks that tge game finished or goes on
-        gameOver(availableMove, index);
+        gameOver(index);
 
     }
 
@@ -103,7 +99,7 @@ public class Cube3Kod : MonoBehaviour
         }
     }
 
-    public IEnumerator fallingAnimation()
+    IEnumerator fallingAnimation()
     {
          foreach (GameObject cube in oyunKontrol.clonelar)
         {
@@ -122,8 +118,18 @@ public class Cube3Kod : MonoBehaviour
         }
     }
 
-    public void gameOver(bool availableMove, int score )
+    public void gameOver(int score)
     {
+        bool availableMove = false;
+        foreach (GameObject cube in oyunKontrol.clonelar)
+        {
+            if (cube.GetComponent<MeshRenderer>().enabled && cube.tag == "mavi")
+            {
+                availableMove = true;
+            }
+        }
+
+
         if (availableMove == false)
         {
             if (score < 100)
