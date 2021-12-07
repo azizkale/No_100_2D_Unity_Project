@@ -4,11 +4,12 @@ public class Memory : MonoBehaviour
 {
     OyunKontrolKod oyunKontrol;
     public Texture2D[] textures;
+    Cube3Kod cube3Kod;
 
-    // Start is called before the first frame update
     void Start()
     {
         oyunKontrol = GameObject.FindGameObjectWithTag("oyunKontrolTag").GetComponent<OyunKontrolKod>();
+        cube3Kod = new Cube3Kod();
         startFromMemory();
     }
 
@@ -16,36 +17,42 @@ public class Memory : MonoBehaviour
     {
         foreach (GameObject item in oyunKontrol.clonelar)
         {
-            PlayerPrefs.SetString(item.name, item.tag);           
+            PlayerPrefs.SetString("tagName: " + item.name, item.tag);           
         }
         Application.Quit();
     }
 
-    int index = 0;
+    public void saveTextureNumber(string cubeName, int index)
+    {        
+        PlayerPrefs.SetInt(cubeName, index);
+    }
+
     public void startFromMemory()
     {
         foreach (GameObject item in oyunKontrol.clonelar)
         {           
-            if (PlayerPrefs.GetString(item.name) == "yesil")
+            if (PlayerPrefs.GetString("tagName: " + item.name) == "yesil")
             {
                 item.tag = "yesil";
-                item.layer = 2; // yeşil küpe tıklanmasın diye      
-                item.GetComponent<Renderer>().material.mainTexture = oyunKontrol.sayilar[index];
-                index++;
+                item.layer = 2; // yeşil küpe tıklanmasın diye
+                item.GetComponent<Renderer>().material.mainTexture = oyunKontrol.sayilar[PlayerPrefs.GetInt("texture:" + item.name)];
                 item.transform.rotation = Quaternion.Euler(90, 0, -180);
+
+                //starts animation for cubes with yesil tag
+                StartCoroutine(cube3Kod.DonmeAnimasyonu(item));
             }
-            else if (PlayerPrefs.GetString(item.name) == "mavi")
+            else if (PlayerPrefs.GetString("tagName: " + item.name) == "mavi")
             {
                 item.tag = "mavi";
                 item.layer = 0;
                 item.GetComponent<Renderer>().material.mainTexture = textures[1];
             }
-            else if (PlayerPrefs.GetString(item.name) == "kirmizi")
+            else if (PlayerPrefs.GetString("tagName: " + item.name) == "kirmizi")
             {
                 item.tag = "kirmizi";
                 item.layer = 2;
                 item.GetComponent<Renderer>().material.mainTexture = textures[2];
             }
-        }
+        }      
     }
 }
