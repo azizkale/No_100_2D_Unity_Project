@@ -10,15 +10,12 @@ public class AnimationControl : MonoBehaviour
 
     public void Start()
     {
-        //PlayerPrefs.DeleteAll();
         if (PlayerPrefs.GetInt("animIntro") == 0)
         {
             diziKupler.SetActive(false);
             gameCanvas.SetActive(false);
             animIntro.SetTrigger("fire");
         }
-
-
     }
 
     public void watchAgain()
