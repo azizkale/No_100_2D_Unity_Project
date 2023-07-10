@@ -12,6 +12,14 @@ TagManager:
   - ortogonalCameraTag
   - perspektifLightTag
   - ortogonalLightTag
+  - textScore
+  - textHighScore
+  - animationIntro
+  - ScorBoardObject
+  - HidingAnimation
+  - finalSceneAnim
+  - gameFailure
+  - gameovertext
   layers:
   - Default
   - TransparentFX
