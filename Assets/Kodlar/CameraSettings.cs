@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class CameraSettings : MonoBehaviour
 {
@@ -8,7 +6,6 @@ public class CameraSettings : MonoBehaviour
     [RequireComponent(typeof(Camera))]
     public class MatchWidth : MonoBehaviour
     {
-
         // Set this to the in-world distance between the left & right edges of your scene.
         public float sceneWidth = 10;
 

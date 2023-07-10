@@ -22,7 +22,6 @@ public class Cube3Kod : MonoBehaviour
     void OnMouseDown()
     {        
         KutularaTiklama();       
-        Debug.Log(name);        
     } 
     
    
@@ -32,9 +31,7 @@ public class Cube3Kod : MonoBehaviour
         int syc = System.Int32.Parse(this.name);// clone küpün adını int e çevirir
         
         //spinning animation
-        StartCoroutine(DonmeAnimasyonu(oyunKontrol.clonelar[syc]));
-
-      
+        StartCoroutine(DonmeAnimasyonu(oyunKontrol.clonelar[syc]));      
 
         // altattaki foreach döngüsü yesil olan clone küpe sayı veriri
         foreach (GameObject item in oyunKontrol.clonelar)
@@ -61,8 +58,7 @@ public class Cube3Kod : MonoBehaviour
                 {
                     oyunKontrol.clonelar[i].GetComponent<Renderer>().material.mainTexture = oyunKontrol.textures[1];
                     oyunKontrol.clonelar[i].tag = "mavi";
-                    oyunKontrol.clonelar[i].layer = 0;
-                   
+                    oyunKontrol.clonelar[i].layer = 0;                   
                 }
 
                 else // yeşil ve mavi olmayanlar kırmızı (tagli) olur
@@ -84,10 +80,9 @@ public class Cube3Kod : MonoBehaviour
 
         // code below checks that tge game finished or goes on
         gameOver(index);
-
     }
 
-    public IEnumerator DonmeAnimasyonu(GameObject go) // arbitary variable
+    public IEnumerator DonmeAnimasyonu(GameObject go)
     {
         int index = 1;
         for (int i = 0; i <= index; i++)
@@ -127,7 +122,6 @@ public class Cube3Kod : MonoBehaviour
                 availableMove = true;
             }
         }
-
 
         if (availableMove == false)
         {

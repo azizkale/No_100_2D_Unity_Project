@@ -10,15 +10,12 @@ public class AnimationControl : MonoBehaviour
 
     public void Start()
     {
-        //PlayerPrefs.DeleteAll();
         if (PlayerPrefs.GetInt("animIntro") == 0)
         {
             diziKupler.SetActive(false);
             gameCanvas.SetActive(false);
             animIntro.SetTrigger("fire");
         }
-
-
     }
 
     public void watchAgain()
@@ -54,20 +51,37 @@ public class AnimationControl : MonoBehaviour
     {
         
         animHidingAvatar = GameObject.FindGameObjectWithTag("HidingAnimation").GetComponent<Animator>();
-        if (numberOfCube == 20 || numberOfCube == 40 || numberOfCube == 60 || numberOfCube == 80 || numberOfCube == 95 || numberOfCube == 97)
+        if (
+            numberOfCube == 20 || 
+            numberOfCube == 40 || 
+            numberOfCube == 60 || 
+            numberOfCube == 80 || 
+            numberOfCube == 95 || 
+            numberOfCube == 97
+            )
             animHidingAvatar.SetBool("showAnimation", true);
         else
             animHidingAvatar.SetBool("showAnimation", false);         
     }
 
     public void finalSceneAnimation()
-    {       
+    {
+        // to stop hiding avatar animation
+        animHidingAvatar = GameObject.FindGameObjectWithTag("HidingAnimation").GetComponent<Animator>();
+        animHidingAvatar.SetBool("showAnimation", false);
+
+        // to start final scene animation
         animFinalScene = GameObject.FindGameObjectWithTag("finalSceneAnim").GetComponent<Animator>();
         animFinalScene.SetTrigger("finalScene");        
     }
 
     public void gameFailureAnimation()
     {
+        // to stop hiding avatar animation
+        animHidingAvatar = GameObject.FindGameObjectWithTag("HidingAnimation").GetComponent<Animator>();
+        animHidingAvatar.SetBool("showAnimation", false);
+
+        // to start game over animation (failure)
         animFailure = GameObject.FindGameObjectWithTag("gameFailure").GetComponent<Animator>();
         animFailure.SetTrigger("gameFailure");        
     }
